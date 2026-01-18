@@ -33,11 +33,10 @@ const inputNum = () => {
             let value = Number(document.querySelector(".input").value);
             console.log(value, typeof value);
             if (!value) {
-                let message = (document.querySelector(".result").textContent =
-                    "No Number...");
+                document.querySelector(".result").textContent = "No Number...";
             } else if (value == luckyNum) {
-                // message.textContent = "You WIN";
+                document.querySelector(".result").textContent = "YOU WIN";
             }
-            show.textContent = value;
+            // show.textContent = value;
         });
 };
