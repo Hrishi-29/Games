@@ -60,6 +60,7 @@ const inputNum = () => {
                         "Well Played...";
                     document.querySelector(".rst-btn").style.color = "#fff";
                     show.textContent = luckyNum;
+                    document.querySelector(".score-no").textContent = 0;
                 }
             } else if (value >= luckyNum) {
                 if (score > 1) {
@@ -77,6 +78,7 @@ const inputNum = () => {
                         "Well Played...";
                     document.querySelector(".rst-btn").style.color = "#fff";
                     show.textContent = luckyNum;
+                    document.querySelector(".score-no").textContent = 0;
                 }
             }
             // show.textContent = value;
