@@ -1,19 +1,13 @@
 let luckyNum = Number(Math.ceil(Math.random() * 20));
-let score = 05;
+let score = 5;
 let tops = document.querySelector(".top");
-// refresh
-// let reset = document
-//     .querySelector(".rst-btn")
-//     .addEventListener("click", function () {
-//         inputNum();
-//         console.log("Restart...");
-//     });
-//refresh-end
+
 let show = document.createElement("div");
 show.textContent = "?";
 show.classList.add("show-no");
 tops.appendChild(show);
 show.style.display = "none";
+
 let play = document.querySelector(".st-btn");
 play.addEventListener("click", function () {
     // console.log("clicked");
@@ -84,3 +78,19 @@ const inputNum = () => {
             // show.textContent = value;
         });
 };
+
+let reset = document
+    .querySelector(".rst-btn")
+    .addEventListener("click", function () {
+        // console.log("Restart...");
+        show.textContent = "?";
+        score = 5;
+        luckyNum = Number(Math.ceil(Math.random() * 20));
+        document.querySelector("#heading").textContent = "Guessing...";
+        document.querySelector(".result").textContent = "Your Results...";
+        document.querySelector(".target").textContent = "Guess (1 to 20)";
+        document.querySelector(".score-no").textContent = 5;
+        document.querySelector("body").style.background = "#2a7b9b";
+        document.querySelector("body").style.color = "#000";
+        document.querySelector("body").style.animation = "none";
+    });
