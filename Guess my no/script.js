@@ -36,6 +36,16 @@ const inputNum = () => {
                 document.querySelector(".result").textContent = "No Number...";
             } else if (value == luckyNum) {
                 document.querySelector(".result").textContent = "YOU WIN";
+                document.querySelector("body").style.animation =
+                    "color-change-2x 3s linear infinite alternate both";
+                document.querySelector("#heading").textContent =
+                    "CONGRATULATIONS!";
+                document.querySelector(".target").textContent =
+                    "Increase your Score...";
+            } else if (value <= luckyNum) {
+                document.querySelector(".result").textContent = "Too Low...";
+            } else if (value >= luckyNum) {
+                document.querySelector(".result").textContent = "Too High...";
             }
             // show.textContent = value;
         });
