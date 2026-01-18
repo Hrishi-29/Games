@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guess my Number..</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <header>
+            <h3>Guess My Number!</h3>
+            <button class="rst-btn">
+                <i class="fa-solid fa-rotate-right"></i> Restart
+            </button>
+        </header>
+        <main>
+            <section class="top">
+                <h1 id="heading">Start The Game</h1>
+                <button class="st-btn">PLAY!</button>
+            </section>
+            <section class="bottom">
+                <p class="target">Guess (1 to 20)</p>
+            </section>
+        </main>
+        <footer>
+            <section class="left">
+                <input
+                    type="text"
+                    placeholder="Entr a no."
+                    id="num"
+                    class="input"
+                /><br />
+                <button class="check-btn">Check!</button>
+            </section>
+            <section class="right">
+                <p class="result">Your Results...</p>
+                <p class="score">Score: <span class="score-no">05</span></p>
+                <p class="hscore">
+                    Highscore: <span class="hscore-no">0</span>
+                </p>
+            </section>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
