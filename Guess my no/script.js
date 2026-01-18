@@ -1,4 +1,5 @@
 let luckyNum = Number(Math.ceil(Math.random() * 20));
+let score = 05;
 let tops = document.querySelector(".top");
 // refresh
 // let reset = document
@@ -44,9 +45,37 @@ const inputNum = () => {
                 document.querySelector(".target").textContent =
                     "Increase your Score...";
             } else if (value <= luckyNum) {
-                document.querySelector(".result").textContent = "Too Low...";
+                if (score > 1) {
+                    document.querySelector(".result").textContent =
+                        "Too Low...";
+                    score--;
+                    document.querySelector(".score-no").textContent = score;
+                } else {
+                    document.querySelector(".result").textContent = "YOU LOST";
+                    document.querySelector("body").style.background = "#222";
+                    document.querySelector("body").style.color = "#fff";
+                    document.querySelector("#heading").textContent =
+                        "GAME OVER!";
+                    document.querySelector(".target").textContent =
+                        "Well Played...";
+                    document.querySelector(".rst-btn").style.color = "#fff";
+                }
             } else if (value >= luckyNum) {
-                document.querySelector(".result").textContent = "Too High...";
+                if (score > 1) {
+                    document.querySelector(".result").textContent =
+                        "Too High...";
+                    score--;
+                    document.querySelector(".score-no").textContent = score;
+                } else {
+                    document.querySelector(".result").textContent = "YOU LOST";
+                    document.querySelector("body").style.background = "#222";
+                    document.querySelector("body").style.color = "#fff";
+                    document.querySelector("#heading").textContent =
+                        "GAME OVER!";
+                    document.querySelector(".target").textContent =
+                        "Well Played...";
+                    document.querySelector(".rst-btn").style.color = "#fff";
+                }
             }
             // show.textContent = value;
         });
