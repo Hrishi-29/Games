@@ -1,6 +1,7 @@
 let luckyNum = Number(Math.ceil(Math.random() * 20));
 let score = 5;
 let highscore = 0;
+// console.log(luckyNum);
 let tops = document.querySelector(".top");
 
 let show = document.createElement("div");
@@ -15,7 +16,6 @@ play.addEventListener("click", function () {
     document.querySelector("#heading").textContent = "Guessing...";
     play.remove();
     show.style.display = "block";
-    // console.log(luckyNum);
     inputNum();
 });
 
