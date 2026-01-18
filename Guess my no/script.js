@@ -1,5 +1,6 @@
 let luckyNum = Number(Math.ceil(Math.random() * 20));
 let score = 5;
+let highscore = 0;
 let tops = document.querySelector(".top");
 
 let show = document.createElement("div");
@@ -38,6 +39,11 @@ const inputNum = () => {
                 document.querySelector(".target").textContent =
                     "Increase your Score...";
                 show.textContent = luckyNum;
+
+                if (highscore < score) {
+                    highscore = score;
+                    document.querySelector(".hscore-no").textContent = score;
+                }
             } else if (value <= luckyNum) {
                 if (score > 1) {
                     document.querySelector(".result").textContent =
