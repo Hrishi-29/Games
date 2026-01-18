@@ -16,17 +16,16 @@ tops.appendChild(show);
 show.style.display = "none";
 let play = document.querySelector(".st-btn");
 play.addEventListener("click", function () {
-    console.log("clicked");
+    // console.log("clicked");
     document.querySelector("#heading").textContent = "Guessing...";
     play.remove();
     show.style.display = "block";
-    show.textContent = luckyNum;
-
+    // console.log(luckyNum);
     inputNum();
 });
 
 const inputNum = () => {
-    console.log("Enter number");
+    // console.log("Enter number");
     let check = document
         .querySelector(".check-btn")
         .addEventListener("click", function () {
@@ -44,6 +43,7 @@ const inputNum = () => {
                     "CONGRATULATIONS!";
                 document.querySelector(".target").textContent =
                     "Increase your Score...";
+                show.textContent = luckyNum;
             } else if (value <= luckyNum) {
                 if (score > 1) {
                     document.querySelector(".result").textContent =
@@ -59,6 +59,7 @@ const inputNum = () => {
                     document.querySelector(".target").textContent =
                         "Well Played...";
                     document.querySelector(".rst-btn").style.color = "#fff";
+                    show.textContent = luckyNum;
                 }
             } else if (value >= luckyNum) {
                 if (score > 1) {
@@ -75,6 +76,7 @@ const inputNum = () => {
                     document.querySelector(".target").textContent =
                         "Well Played...";
                     document.querySelector(".rst-btn").style.color = "#fff";
+                    show.textContent = luckyNum;
                 }
             }
             // show.textContent = value;
