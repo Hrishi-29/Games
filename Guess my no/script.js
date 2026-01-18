@@ -29,9 +29,10 @@ const inputNum = () => {
     let check = document
         .querySelector(".check-btn")
         .addEventListener("click", function () {
-            console.log("checked");
+            // console.log("checked");
             let value = Number(document.querySelector(".input").value);
-            console.log(value, typeof value);
+            document.querySelector(".input").value = "";
+            // console.log(value, typeof value);
             if (!value) {
                 document.querySelector(".result").textContent = "No Number...";
             } else if (value == luckyNum) {
