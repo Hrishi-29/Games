@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap");
 
 body {
     margin: 0;
@@ -32,10 +32,6 @@ body {
     display: none;
 }
 
-img {
-    width: 10rem;
-}
-
 #h-game {
     position: absolute;
     top: 2.5rem;
@@ -54,11 +50,7 @@ img {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
     box-shadow: 2px 2px 20px #dedede;
-    max-height: 60vh;
-}
-
-.btn {
-    position: absolute;
+    max-height: 70vh;
 }
 
 .box-1 {
@@ -68,24 +60,56 @@ img {
 }
 
 .score {
-    font-size: 2rem;
+    padding: 1.5rem;
+    font-size: 2.5rem;
+    font-family: "Exo 2", sans-serif;
 }
 
 .s-box {
     position: relative;
-    left: 20%;
+    left: 25%;
     right: 35%;
     box-shadow: 2px 2px 20px #808;
-    width: 60%;
-    height: 4rem;
+    width: 50%;
+    padding: min(0.3rem, 8%);
+    margin: 2rem 0;
+    color: #ffe0ee;
+    background-color: #ab00ab;
+    border-radius: 1rem;
+    /*height: 4rem;*/
+}
+
+#s-head {
+    margin: 0;
 }
 
 .num {
     font-size: 1.3rem;
+    font-family: "Exo 2", sans-serif;
 }
 
 .box-2 {
     width: 20rem;
     flex: 1;
     text-align: center;
+}
+
+.btns {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    font-family: "Exo 2", sans-serif;
+    margin: 1rem;
+}
+
+.dice {
+    height: 5.5rem;
+    background-image: url("dice/1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 2px 2px 20px #474747;
 }
