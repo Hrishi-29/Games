@@ -47,7 +47,7 @@ body {
     max-width: max-content;
     font-size: 1rem;
     text-align: center;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(207, 207, 207, 0.2);
     backdrop-filter: blur(5px);
     box-shadow: 2px 2px 20px #dedede;
     max-height: 70vh;
@@ -98,18 +98,47 @@ body {
     position: absolute;
     display: flex;
     flex-direction: column;
+    z-index: 1;
 }
 
 .btn {
     font-family: "Exo 2", sans-serif;
     margin: 1rem;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 6rem;
+    border-radius: 1rem;
+    border: none;
 }
 
 .dice {
-    height: 5.5rem;
+    position: relative;
+    height: 4.5rem;
+    width: 4.5rem;
+    left: 1.7rem;
+    right: 1.7rem;
     background-image: url("dice/1.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 4.5rem;
     box-shadow: 2px 2px 20px #474747;
+}
+
+.st-btn {
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.rs-btn {
+    margin-top: 2rem;
+}
+
+.h-btn {
+    margin-top: 0;
+}
+
+.slider {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 1rem;
 }
