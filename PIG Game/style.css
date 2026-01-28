@@ -50,6 +50,7 @@ body {
     background: rgba(207, 207, 207, 0.2);
     backdrop-filter: blur(5px);
     box-shadow: 2px 2px 20px #dedede;
+    border-radius: 1rem;
     max-height: 70vh;
 }
 
