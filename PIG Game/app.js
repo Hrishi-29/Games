@@ -12,8 +12,34 @@ start.addEventListener("click", () => {
     die.classList.toggle("hidden");
     die.style.animation =
         "scale-in-center 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both";
+    setTimeout(() => {
+        die.style.animation = "none";
+    }, 250);
     rBox.classList.toggle("slider");
     rBox.style.animation =
         "swing-in-right-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
     lBox.classList.toggle("slider");
+    // shuffling();
 });
+
+let shuffle = document.querySelector(".sff-btn");
+// const shuffling = () => {
+let tScore = 0;
+shuffle.addEventListener("click", () => {
+    console.log("shuffling...");
+    let rnum = Number(Math.ceil(Math.random() * 6));
+    if (rnum != 1) {
+        tScore += rnum;
+    } else {
+        tScore = 0;
+    }
+    console.log(tScore);
+
+    die.style.backgroundImage = `url('dice/${rnum}.png')`;
+    die.style.animation =
+        "rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both";
+    setTimeout(() => {
+        die.style.animation = "none";
+    }, 600);
+});
+// };
