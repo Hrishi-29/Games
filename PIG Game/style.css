@@ -107,7 +107,7 @@ body {
     margin: 1rem;
     padding: 0.5rem;
     height: 2.5rem;
-    width: 6rem;
+    width: 7rem;
     border-radius: 1rem;
     border: none;
 }
@@ -116,8 +116,8 @@ body {
     position: relative;
     height: 4.5rem;
     width: 4.5rem;
-    left: 1.7rem;
-    right: 1.7rem;
+    left: 2.1rem;
+    right: 2.1rem;
     background-image: url("dice/1.png");
     background-position: center;
     background-repeat: no-repeat;
