@@ -3,8 +3,24 @@
 let start = document.querySelector(".st-btn");
 let restart = document.querySelector(".rs-btn");
 let die = document.querySelector(".dice");
-let rBox = document.querySelector(".box-1");
-let lBox = document.querySelector(".box-2");
+let lBox = document.querySelector(".box-1");
+let rBox = document.querySelector(".box-2");
+
+const leftAnime = () => {
+    lBox.style.animation =
+        "swing-in-right-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
+    setTimeout(() => {
+        lBox.style.animation = "none";
+    }, 700);
+};
+
+const rightAnime = () => {
+    rBox.style.animation =
+        "swing-in-left-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
+    setTimeout(() => {
+        rBox.style.animation = "none";
+    }, 700);
+};
 start.addEventListener("click", () => {
     console.log("clicked to Start...");
     start.classList.toggle("hidden");
@@ -15,10 +31,9 @@ start.addEventListener("click", () => {
     setTimeout(() => {
         die.style.animation = "none";
     }, 250);
-    rBox.classList.toggle("slider");
-    rBox.style.animation =
-        "swing-in-right-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
     lBox.classList.toggle("slider");
+    leftAnime();
+    rBox.classList.toggle("slider");
     // shuffling();
 });
 
@@ -32,9 +47,12 @@ shuffle.addEventListener("click", () => {
         tScore += rnum;
     } else {
         tScore = 0;
+        rBox.classList.toggle("slider");
+        rightAnime();
+        lBox.classList.toggle("slider");
     }
     console.log(tScore);
-
+    document.querySelector(".lScore").textContent = tScore;
     die.style.backgroundImage = `url('dice/${rnum}.png')`;
     die.style.animation =
         "rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both";
