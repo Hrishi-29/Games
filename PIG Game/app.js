@@ -5,6 +5,8 @@ let restart = document.querySelector(".rs-btn");
 let die = document.querySelector(".dice");
 let lBox = document.querySelector(".box-1");
 let rBox = document.querySelector(".box-2");
+let lScore = document.querySelector(".score0");
+let rScore = document.querySelector(".score1");
 
 const leftAnime = () => {
     lBox.style.animation =
@@ -34,30 +36,47 @@ start.addEventListener("click", () => {
     lBox.classList.toggle("slider");
     leftAnime();
     rBox.classList.toggle("slider");
-    // shuffling();
+    shuffling();
 });
 
 let shuffle = document.querySelector(".sff-btn");
-// const shuffling = () => {
-let tScore = 0;
-shuffle.addEventListener("click", () => {
-    console.log("shuffling...");
-    let rnum = Number(Math.ceil(Math.random() * 6));
-    if (rnum != 1) {
-        tScore += rnum;
-    } else {
-        tScore = 0;
-        rBox.classList.toggle("slider");
-        rightAnime();
-        lBox.classList.toggle("slider");
-    }
-    console.log(tScore);
-    document.querySelector(".lScore").textContent = tScore;
-    die.style.backgroundImage = `url('dice/${rnum}.png')`;
-    die.style.animation =
-        "rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both";
-    setTimeout(() => {
-        die.style.animation = "none";
-    }, 600);
-});
-// };
+let hold = document.querySelector(".h-btn");
+const shuffling = () => {
+    let tScore = 0;
+    let active = 0;
+    shuffle.addEventListener("click", () => {
+        console.log("shuffling...");
+        let rnum = Number(Math.ceil(Math.random() * 6));
+        die.style.backgroundImage = `url('dice/${rnum}.png')`;
+        if (rnum != 1) {
+            tScore += rnum;
+            document.querySelector(`.score${active}`).textContent = tScore;
+            console.log(tScore);
+        } else {
+            tScore = 0;
+            document.querySelector(`.score${active}`).textContent = tScore;
+            active = active === 0 ? 1 : 0;
+            if (active != 0) {
+                rBox.classList.toggle("slider");
+                rightAnime();
+                lBox.classList.toggle("slider");
+            } else {
+                lBox.classList.toggle("slider");
+                leftAnime();
+                rBox.classList.toggle("slider");
+            }
+        }
+        die.style.animation =
+            "rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both";
+        setTimeout(() => {
+            die.style.animation = "none";
+        }, 600);
+    });
+    hold.addEventListener("click", () => {
+        if (active != 0) {
+            // statement
+        } else {
+            // statement
+        }
+    });
+};
