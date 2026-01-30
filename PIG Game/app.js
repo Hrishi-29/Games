@@ -73,10 +73,29 @@ const shuffling = () => {
         }, 600);
     });
     hold.addEventListener("click", () => {
+        console.log("Holding...");
         if (active != 0) {
-            // statement
+            console.log(document.querySelector(`.score${active}`).textContent);
+            document.querySelector(`.s--${active}`).textContent =
+                document.querySelector(`.score${active}`).textContent;
         } else {
-            // statement
+            console.log(document.querySelector(`.score${active}`).textContent);
+            document.querySelector(`.s--${active}`).textContent =
+                document.querySelector(`.score${active}`).textContent;
+        }
+        rnum = 1;
+        die.style.backgroundImage = `url('dice/${rnum}.png')`;
+        tScore = 0;
+        document.querySelector(`.score${active}`).textContent = tScore;
+        active = active === 0 ? 1 : 0;
+        if (active != 0) {
+            rBox.classList.toggle("slider");
+            rightAnime();
+            lBox.classList.toggle("slider");
+        } else {
+            lBox.classList.toggle("slider");
+            leftAnime();
+            rBox.classList.toggle("slider");
         }
     });
 };
