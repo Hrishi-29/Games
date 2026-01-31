@@ -76,6 +76,7 @@ const shuffling = () => {
             }, 600);
         }
     });
+
     hold.addEventListener("click", () => {
         if (playing) {
             console.log("Holding...");
@@ -115,11 +116,18 @@ const shuffling = () => {
                 document
                     .querySelector(`.box-${active}`)
                     .classList.add("winner");
+                document.querySelector(`#s-head${active}`).innerHTML =
+                    `<i class="fa-solid fa-trophy "></i>`;
+                document.querySelector(`.score${active}`).textContent =
+                    "Winner";
                 document.querySelector(".winner").style.animation =
                     "swing-in-top-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
                 document
                     .querySelector(`.box-${(active = active === 0 ? 1 : 0)}`)
                     .classList.add("loser");
+                document.querySelector(`#s-head${active}`).innerHTML =
+                    `<i class="fa-solid fa-thumbs-down"></i>`;
+                document.querySelector(`.score${active}`).textContent = "Loser";
                 document.querySelector(".loser").style.animation =
                     "swing-in-top-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
 
@@ -128,3 +136,5 @@ const shuffling = () => {
         }
     });
 };
+
+//restart

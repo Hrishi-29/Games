@@ -80,7 +80,11 @@ body {
     /*height: 4rem;*/
 }
 
-#s-head {
+#s-head0 {
+    margin: 0;
+}
+
+#s-head1 {
     margin: 0;
 }
 
@@ -213,9 +217,9 @@ body {
 .winner {
     background: radial-gradient(
         circle,
-        rgba(255, 0, 0, 0.2) 0%,
-        rgba(121, 9, 11, 0.2) 35%,
-        rgba(36, 0, 1, 0.2) 100%
+        rgba(255, 0, 0, 0.4) 0%,
+        rgba(121, 9, 11, 0.4) 35%,
+        rgba(36, 0, 1, 0.4) 100%
     );
     backdrop-filter: blur(5px);
     border-radius: 1rem;
@@ -237,9 +241,9 @@ body {
 .loser {
     background: radial-gradient(
         circle,
-        rgba(0, 64, 255, 0.2) 0%,
-        rgba(9, 9, 121, 0.2) 35%,
-        rgba(2, 0, 36, 0.2) 100%
+        rgba(0, 64, 255, 0.4) 0%,
+        rgba(9, 9, 121, 0.4) 35%,
+        rgba(2, 0, 36, 0.4) 100%
     );
     backdrop-filter: blur(5px);
     border-radius: 1rem;
