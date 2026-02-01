@@ -113,7 +113,18 @@ body {
     height: 2.5rem;
     width: 7rem;
     border-radius: 1rem;
+    box-shadow: 0px 5px 10px rgba(darken(dodgerblue, 40%));
     border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.4s;
+    &:hover {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    &:active {
+        transform: scale(0.88);
+    }
 }
 
 .dice {
@@ -166,31 +177,20 @@ body {
 .st-btn {
     padding: 0;
     margin-top: 2rem;
-    opacity: 0.7;
 }
 
 .rs-btn {
     margin-top: 2rem;
-    opacity: 0.7;
 }
 
 .sff-btn {
     position: fixed;
     margin-top: 11rem;
-    opacity: 0.7;
 }
 
 .h-btn {
     position: fixed;
     margin-top: 14.5rem;
-    opacity: 0.7;
-}
-
-.st-btn:hover,
-.rs-btn:hover,
-.h-btn:hover,
-.sff-btn:hover {
-    opacity: 1;
 }
 
 .slider {
