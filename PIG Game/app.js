@@ -8,6 +8,10 @@ let box1 = document.querySelector(".box-1");
 let lScore = document.querySelector(".score0");
 let rScore = document.querySelector(".score1");
 
+const scores = [0, 0];
+let tScore = 0;
+let active = 0;
+
 const leftAnime = () => {
     box0.style.animation =
         "swing-in-right-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
@@ -23,6 +27,33 @@ const rightAnime = () => {
         box1.style.animation = "none";
     }, 700);
 };
+
+const left = () => {
+    box0.classList.toggle("slider");
+    leftAnime();
+};
+
+const switching = () => {
+    tScore = 0;
+    document.querySelector(`.score${active}`).textContent = tScore;
+    active = active === 0 ? 1 : 0;
+    if (active != 0) {
+        box1.classList.toggle("slider");
+        rightAnime();
+        box0.classList.toggle("slider");
+    } else {
+        left();
+        box1.classList.toggle("slider");
+    }
+};
+
+const addScore = () => {
+    scores[active] += tScore;
+    // console.log(tScore);
+    document.querySelector(`.s--${active}`).textContent = scores[active];
+};
+
+//start
 start.addEventListener("click", () => {
     console.log("Game Start...");
     start.classList.toggle("hidden");
@@ -33,19 +64,21 @@ start.addEventListener("click", () => {
     setTimeout(() => {
         die.style.animation = "none";
     }, 250);
-    box0.classList.toggle("slider");
-    leftAnime();
+    left();
     box1.classList.toggle("slider");
     shuffling();
 });
 
 let shuffle = document.querySelector(".sff-btn");
 let hold = document.querySelector(".h-btn");
+
+//shuffle & hold
 const shuffling = () => {
-    const scores = [0, 0];
-    let tScore = 0;
-    let active = 0;
+    tScore = 0;
+    active = 0;
     let playing = true;
+
+    //shuffle
     shuffle.addEventListener("click", () => {
         if (playing) {
             console.log("shuffling...");
@@ -56,18 +89,7 @@ const shuffling = () => {
                 document.querySelector(`.score${active}`).textContent = tScore;
                 // console.log(tScore);
             } else {
-                tScore = 0;
-                document.querySelector(`.score${active}`).textContent = tScore;
-                active = active === 0 ? 1 : 0;
-                if (active != 0) {
-                    box1.classList.toggle("slider");
-                    rightAnime();
-                    box0.classList.toggle("slider");
-                } else {
-                    box0.classList.toggle("slider");
-                    leftAnime();
-                    box1.classList.toggle("slider");
-                }
+                switching();
             }
             die.style.animation =
                 "rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both";
@@ -77,35 +99,19 @@ const shuffling = () => {
         }
     });
 
+    //hold
     hold.addEventListener("click", () => {
         if (playing) {
             console.log("Holding...");
             if (active != 0) {
-                scores[active] += tScore;
-                // console.log(tScore);
-                document.querySelector(`.s--${active}`).textContent =
-                    scores[active];
+                addScore();
             } else {
-                scores[active] += tScore;
-                // console.log(tScore);
-                document.querySelector(`.s--${active}`).textContent =
-                    scores[active];
+                addScore();
             }
             if (scores[active] != 50 && scores[active] <= 49) {
                 rnum = 1;
                 die.style.backgroundImage = `url('dice/${rnum}.png')`;
-                tScore = 0;
-                document.querySelector(`.score${active}`).textContent = tScore;
-                active = active === 0 ? 1 : 0;
-                if (active != 0) {
-                    box1.classList.toggle("slider");
-                    rightAnime();
-                    box0.classList.toggle("slider");
-                } else {
-                    box0.classList.toggle("slider");
-                    leftAnime();
-                    box1.classList.toggle("slider");
-                }
+                switching();
             } else {
                 console.log(`Winner...${active}`);
 
@@ -147,7 +153,8 @@ const shuffling = () => {
 //restart
 document.querySelector(".rs-btn").addEventListener("click", () => {
     console.log("restarted...");
-    scores = [0, 0];
+    scores[0] = 0;
+    scores[1] = 0;
     tScore = 0;
     active = 0;
     playing = true;
@@ -157,8 +164,7 @@ document.querySelector(".rs-btn").addEventListener("click", () => {
     setTimeout(() => {
         die.style.animation = "none";
     }, 250);
-    box0.classList.toggle("slider");
-    leftAnime();
+    left();
     document.querySelector(".score0").textContent = tScore;
     document.querySelector(".score1").textContent = tScore;
     document.querySelector(".s--0").textContent = scores[0];
