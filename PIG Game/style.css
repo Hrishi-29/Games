@@ -152,6 +152,17 @@ body {
     }
 }
 
+@keyframes scale-out-center {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 1;
+    }
+}
+
 .st-btn {
     padding: 0;
     margin-top: 2rem;
