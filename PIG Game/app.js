@@ -108,6 +108,13 @@ const shuffling = () => {
                 }
             } else {
                 console.log(`Winner...${active}`);
+
+                die.style.animation =
+                    "scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both";
+                setTimeout(() => {
+                    die.style.animation = "none";
+                    die.classList.toggle("hidden");
+                }, 500);
                 tScore = 0;
                 document.querySelector(`.score${active}`).textContent = tScore;
                 document
@@ -138,3 +145,29 @@ const shuffling = () => {
 };
 
 //restart
+document.querySelector(".rs-btn").addEventListener("click", () => {
+    console.log("restarted...");
+    scores = [0, 0];
+    tScore = 0;
+    active = 0;
+    playing = true;
+    die.classList.toggle("hidden");
+    die.style.animation =
+        "scale-in-center 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both";
+    setTimeout(() => {
+        die.style.animation = "none";
+    }, 250);
+    box0.classList.toggle("slider");
+    leftAnime();
+    document.querySelector(".score0").textContent = tScore;
+    document.querySelector(".score1").textContent = tScore;
+    document.querySelector(".s--0").textContent = scores[0];
+    document.querySelector(".s--1").textContent = scores[1];
+    document.querySelector("#s-head0").innerHTML = "Score";
+    document.querySelector("#s-head1").innerHTML = "Score";
+    document.querySelector(".box-0").classList.remove("winner");
+    document.querySelector(".box-1").classList.remove("winner");
+    document.querySelector(".box-0").classList.remove("loser");
+    document.querySelector(".box-1").classList.remove("loser");
+    shuffling();
+});
