@@ -5,8 +5,8 @@ body {
     padding: 0;
     box-sizing: border-box;
     place-content: center;
-    min-height: 100vh;
-    font-size: clamp(1rem, 2.5rem, 2rem);
+    height: 100vh;
+    height: 100dvh;
     text-align: center;
     font-family: "Orbitron", sans-serif;
     background: linear-gradient(
@@ -34,10 +34,11 @@ body {
 
 #h-game {
     position: absolute;
-    top: 2.5rem;
+    top: 12%;
     margin: 0 auto;
     left: 25%;
     right: 25%;
+    font-size: clamp(3.5rem, 9vw, 5rem);
 }
 
 .container {
@@ -77,7 +78,6 @@ body {
     color: #ffe0ee;
     background-color: #ab00ab;
     border-radius: 1rem;
-    /*height: 4rem;*/
 }
 
 #s-head0 {
@@ -113,7 +113,6 @@ body {
     height: 2.5rem;
     width: 7rem;
     border-radius: 1rem;
-    box-shadow: 0px 5px 10px rgba(darken(dodgerblue, 40%));
     border: none;
     cursor: pointer;
     opacity: 0.7;
@@ -127,6 +126,12 @@ body {
     }
 }
 
+@media (max-width: 750px) {
+    .btn {
+        width: 3.6rem;
+        font-size: 0rem;
+    }
+}
 .dice {
     position: relative;
     height: 4.5rem;
