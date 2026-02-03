@@ -132,7 +132,7 @@ hold.addEventListener("click", () => {
         } else {
             addScore();
         }
-        if (scores[active] != 10 && scores[active] <= 9) {
+        if (scores[active] != 50 && scores[active] <= 49) {
             rnum = 1;
             die.style.backgroundImage = `url('dice/${rnum}.png')`;
             switching();
@@ -163,10 +163,10 @@ hold.addEventListener("click", () => {
             document.querySelector(".loser").style.animation =
                 "swing-in-top-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
             document.querySelector(".rs-btn").style.animation =
-                "shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) 3s both";
+                "shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) 4s both";
             setTimeout(() => {
                 restart.style.animation = "none";
-            }, 800);
+            }, 4800);
             newGame = true;
             playing = false;
         }
@@ -176,6 +176,11 @@ hold.addEventListener("click", () => {
 
 //restart
 document.querySelector(".rs-btn").addEventListener("click", () => {
+    document.querySelector(".sff-btn").style.animation =
+        "shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both";
+    setTimeout(() => {
+        document.querySelector(".sff-btn").style.animation = "none";
+    }, 800);
     if (newGame) {
         console.log("restarted...");
         scores[0] = 0;
