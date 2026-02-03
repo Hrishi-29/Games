@@ -1,3 +1,4 @@
+// written by Hrishi Raj Verma
 "Use Strict";
 
 let start = document.querySelector(".st-btn");
