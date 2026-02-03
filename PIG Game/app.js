@@ -81,12 +81,6 @@ start.addEventListener("click", () => {
 let shuffle = document.querySelector(".sff-btn");
 let hold = document.querySelector(".h-btn");
 
-//shuffle & hold
-// const shuffling = () => {
-// tScore = 0;
-// active = 0;
-// newGame = false;
-
 //shuffle
 shuffle.addEventListener("click", () => {
     document.querySelector(".st-btn").style.animation =
