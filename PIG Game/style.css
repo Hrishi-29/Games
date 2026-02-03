@@ -293,3 +293,21 @@ body {
         opacity: 1;
     }
 }
+
+.h2 {
+    position: absolute;
+    right: -3rem;
+    font-weight: 500;
+    z-index: 1;
+    align-self: center;
+    transform: rotate(90deg);
+}
+
+.h1 {
+    position: absolute;
+    left: -3rem;
+    font-weight: 500;
+    z-index: 1;
+    align-self: center;
+    transform: rotate(-90deg);
+}
