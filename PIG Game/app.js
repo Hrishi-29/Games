@@ -11,6 +11,7 @@ let rScore = document.querySelector(".score1");
 const scores = [0, 0];
 let tScore = 0;
 let active = 0;
+let playing = false;
 let newGame = false;
 
 const leftAnime = () => {
@@ -57,6 +58,8 @@ const addScore = () => {
 //start
 start.addEventListener("click", () => {
     console.log("Game Start...");
+    playing = true;
+
     start.classList.toggle("hidden");
     restart.classList.toggle("hidden");
     die.classList.toggle("hidden");
@@ -67,89 +70,109 @@ start.addEventListener("click", () => {
     }, 250);
     left();
     box1.classList.remove("slider");
-    shuffling();
+    document.querySelector(".sff-btn").style.animation =
+        "shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) 2s both";
+    setTimeout(() => {
+        document.querySelector(".sff-btn").style.animation = "none";
+    }, 2800);
+    // shuffling();
 });
 
 let shuffle = document.querySelector(".sff-btn");
 let hold = document.querySelector(".h-btn");
 
 //shuffle & hold
-const shuffling = () => {
-    tScore = 0;
-    active = 0;
-    let playing = true;
+// const shuffling = () => {
+// tScore = 0;
+// active = 0;
+// newGame = false;
 
-    //shuffle
-    shuffle.addEventListener("click", () => {
-        if (playing) {
-            console.log("shuffling...");
-            let rnum = Number(Math.ceil(Math.random() * 6));
+//shuffle
+shuffle.addEventListener("click", () => {
+    document.querySelector(".st-btn").style.animation =
+        "shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both";
+    setTimeout(() => {
+        start.style.animation = "none";
+    }, 800);
+    if (playing) {
+        console.log("shuffling...");
+        let rnum = Number(Math.ceil(Math.random() * 6));
+        die.style.backgroundImage = `url('dice/${rnum}.png')`;
+        if (rnum != 1) {
+            tScore += rnum;
+            document.querySelector(`.score${active}`).textContent = tScore;
+            // console.log(tScore);
+        } else {
+            switching();
+        }
+        die.style.animation =
+            "rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both";
+        setTimeout(() => {
+            die.style.animation = "none";
+        }, 600);
+        document.querySelector(".h-btn").style.animation =
+            "shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1s infinite both";
+        setTimeout(() => {
+            hold.style.animation = "none";
+        }, 1800);
+    }
+});
+
+//hold
+hold.addEventListener("click", () => {
+    document.querySelector(".st-btn").style.animation =
+        "shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both";
+    setTimeout(() => {
+        start.style.animation = "none";
+    }, 800);
+    if (playing) {
+        console.log("Holding...");
+        if (active != 0) {
+            addScore();
+        } else {
+            addScore();
+        }
+        if (scores[active] != 10 && scores[active] <= 9) {
+            rnum = 1;
             die.style.backgroundImage = `url('dice/${rnum}.png')`;
-            if (rnum != 1) {
-                tScore += rnum;
-                document.querySelector(`.score${active}`).textContent = tScore;
-                // console.log(tScore);
-            } else {
-                switching();
-            }
+            switching();
+        } else {
+            console.log(`Winner...${active}`);
+
             die.style.animation =
-                "rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both";
+                "scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both";
             setTimeout(() => {
                 die.style.animation = "none";
-            }, 600);
+                die.classList.toggle("hidden");
+            }, 500);
+            tScore = 0;
+            document.querySelector(`.score${active}`).textContent = tScore;
+            document.querySelector(`.box-${active}`).classList.toggle("slider");
+            document.querySelector(`.box-${active}`).classList.add("winner");
+            document.querySelector(`#s-head${active}`).innerHTML =
+                `<i class="fa-solid fa-trophy "></i>`;
+            document.querySelector(`.score${active}`).textContent = "Winner";
+            document.querySelector(".winner").style.animation =
+                "swing-in-top-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
+            document
+                .querySelector(`.box-${(active = active === 0 ? 1 : 0)}`)
+                .classList.add("loser");
+            document.querySelector(`#s-head${active}`).innerHTML =
+                `<i class="fa-solid fa-thumbs-down"></i>`;
+            document.querySelector(`.score${active}`).textContent = "Loser";
+            document.querySelector(".loser").style.animation =
+                "swing-in-top-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
+            document.querySelector(".rs-btn").style.animation =
+                "shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) 3s both";
+            setTimeout(() => {
+                restart.style.animation = "none";
+            }, 800);
+            newGame = true;
+            playing = false;
         }
-    });
-
-    //hold
-    hold.addEventListener("click", () => {
-        if (playing) {
-            console.log("Holding...");
-            if (active != 0) {
-                addScore();
-            } else {
-                addScore();
-            }
-            if (scores[active] != 50 && scores[active] <= 49) {
-                rnum = 1;
-                die.style.backgroundImage = `url('dice/${rnum}.png')`;
-                switching();
-            } else {
-                console.log(`Winner...${active}`);
-
-                die.style.animation =
-                    "scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both";
-                setTimeout(() => {
-                    die.style.animation = "none";
-                    die.classList.toggle("hidden");
-                }, 500);
-                tScore = 0;
-                document.querySelector(`.score${active}`).textContent = tScore;
-                document
-                    .querySelector(`.box-${active}`)
-                    .classList.toggle("slider");
-                document
-                    .querySelector(`.box-${active}`)
-                    .classList.add("winner");
-                document.querySelector(`#s-head${active}`).innerHTML =
-                    `<i class="fa-solid fa-trophy "></i>`;
-                document.querySelector(`.score${active}`).textContent =
-                    "Winner";
-                document.querySelector(".winner").style.animation =
-                    "swing-in-top-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
-                document
-                    .querySelector(`.box-${(active = active === 0 ? 1 : 0)}`)
-                    .classList.add("loser");
-                document.querySelector(`#s-head${active}`).innerHTML =
-                    `<i class="fa-solid fa-thumbs-down"></i>`;
-                document.querySelector(`.score${active}`).textContent = "Loser";
-                document.querySelector(".loser").style.animation =
-                    "swing-in-top-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
-                newGame = true;
-                playing = false;
-            }
-        }
-    });
-};
+    }
+});
+// };
 
 //restart
 document.querySelector(".rs-btn").addEventListener("click", () => {

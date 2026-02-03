@@ -14,18 +14,6 @@ body {
         rgba(79, 0, 176, 1) 0%,
         rgba(252, 70, 107, 1) 100%
     );
-    /*animation: bg-pan-left 8s both;*/
-}
-
-@keyframes bg-pan-left {
-    0% {
-        background-position: 100% 50%;
-        background:;
-    }
-    100% {
-        background-position: 0% 50%;
-        background:;
-    }
 }
 
 .hidden {
@@ -131,7 +119,11 @@ body {
         width: 3.6rem;
         font-size: 0rem;
     }
+    .dice {
+        margin-left: -1.5rem;
+    }
 }
+
 .dice {
     position: relative;
     height: 4.5rem;
@@ -196,6 +188,30 @@ body {
 .h-btn {
     position: fixed;
     margin-top: 14.5rem;
+}
+
+@keyframes shake-horizontal {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+        transform: translateX(-6px);
+    }
+    20%,
+    40%,
+    60% {
+        transform: translateX(6px);
+    }
+    80% {
+        transform: translateX(4px);
+    }
+    90% {
+        transform: translateX(-4px);
+    }
 }
 
 .slider {
