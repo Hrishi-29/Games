@@ -38,3 +38,29 @@ Made with ❤️ for fun web development practice
 ## #2 game
 
 <img align="center" height="500" src="https://github.com/Hrishi-29/Games/blob/958c746bf7fa294cc33f44c7428771fb4d2aa100/img/PIG_GAME.png"  />
+
+**PIG Game 🎲**
+A thrilling 2-player dice game built with HTML, CSS, and JavaScript. First to reach 100 points wins!
+
+**How to Play**
+
+- Roll the dice to add to your current score
+- Choose HOLD to bank points to your total score
+- Roll a 1? Lose your current turn's points!
+- Pass turns with opponent - first to 100 points wins 🎉
+
+**Features**
+
+- Real-time 2-player gameplay (no bots)
+- Smooth dice animations and UI transitions
+- Current score & total score tracking
+- Responsive design for mobile & desktop
+- Pure vanilla HTML, CSS, and JavaScript
+
+**Quick Start**
+
+- Clone the repo
+- Open index.html in your browser
+- Challenge a friend and roll! 🎮
+
+Built for competitive fun with clean vanilla code
