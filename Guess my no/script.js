@@ -1,3 +1,5 @@
+// written by Hrishi Raj Verma
+
 let luckyNum = Number(Math.ceil(Math.random() * 20));
 let score = 5;
 let highScore = 0;
