@@ -14,7 +14,7 @@ Perfect for practicing frontend development fundamentals and game logic.
 
 ## #1 game
 
-<img align="center" height="500" src="https://github.com/Hrishi-29/Games/blob/d9fe9f56e521bec1f2da055020bc2d4b0ae11136/game_pic.png"  />
+<img align="center" height="500" src="https://github.com/Hrishi-29/Games/blob/958c746bf7fa294cc33f44c7428771fb4d2aa100/img/game_pic.png"  />
 
 **Guess My Number 🎯**
 A fun and addictive number guessing game built with HTML, CSS, and JavaScript.
@@ -36,3 +36,5 @@ Made with ❤️ for fun web development practice
 <br>
 
 ## #2 game
+
+<img align="center" height="500" src="https://github.com/Hrishi-29/Games/blob/958c746bf7fa294cc33f44c7428771fb4d2aa100/img/PIG_GAME.png"  />
